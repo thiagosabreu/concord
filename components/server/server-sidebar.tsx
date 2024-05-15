@@ -69,7 +69,7 @@ export const ServerSidebar = async ({
   const role = server.members.find((member) => member.profileId === profile.id)?.role;
 
   return (
-    <div className="flex flex-col h-full text-primary w-full dark:bg-[#0a0a2b] bg-[#F2F3F5]">
+    <div className="flex flex-col h-full text-primary w-full dark:bg-[#0a0a2b] bg-[#e8b6fc]">
       <ServerHeader
         server={server}
         role={role}
