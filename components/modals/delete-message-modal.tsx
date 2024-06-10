@@ -31,7 +31,13 @@ export const DeleteMessageModal = () => {
         query,
       });
 
-      await axios.delete(url);
+      const response = await fetch(url, {
+        method: 'DELETE',
+      });
+  
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
 
       onClose();
     } catch (error) {
