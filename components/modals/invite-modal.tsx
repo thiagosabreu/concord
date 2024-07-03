@@ -40,6 +40,10 @@ export const InviteModal = () => {
   const onNew = async () => {
     try {
       setIsLoading(true);
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 8b9a05a51fd1693f89fed920d38f27677ea6dab7
       const response = await fetch(`/api/servers/${server?.id}/invite-code`, {
         method: 'PATCH',
         headers: {

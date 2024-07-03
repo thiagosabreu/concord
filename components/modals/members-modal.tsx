@@ -2,13 +2,13 @@
 
 import axios from "axios";
 import qs from "query-string";
-import { 
+import {
   Check,
   Gavel,
   Loader2,
-  MoreVertical, 
-  Shield, 
-  ShieldAlert, 
+  MoreVertical,
+  Shield,
+  ShieldAlert,
   ShieldCheck,
   ShieldQuestion
 } from "lucide-react";
@@ -122,7 +122,7 @@ export const MembersModal = () => {
           <DialogTitle className="text-2xl text-center font-bold">
             Manage Members
           </DialogTitle>
-          <DialogDescription 
+          <DialogDescription
             className="text-center text-zinc-500"
           >
             {server?.members?.length} Members

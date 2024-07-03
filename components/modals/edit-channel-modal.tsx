@@ -90,6 +90,12 @@ export const EditChannelModal = () => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
+<<<<<<< HEAD
+=======
+
+      const data = await response.json();
+
+>>>>>>> 8b9a05a51fd1693f89fed920d38f27677ea6dab7
 
       form.reset();
       router.refresh();

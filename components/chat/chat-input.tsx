@@ -1,7 +1,7 @@
 "use client";
 
 import * as z from "zod";
-import axios from "axios";
+
 import qs from "query-string";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -54,7 +54,10 @@ export const ChatInput = ({
         query,
       });
 
+<<<<<<< HEAD
       
+=======
+>>>>>>> 8b9a05a51fd1693f89fed920d38f27677ea6dab7
       const response = await fetch(url, {
         method: 'POST',
         headers: {
@@ -67,6 +70,10 @@ export const ChatInput = ({
         throw new Error('Network response was not ok');
       }
 
+<<<<<<< HEAD
+=======
+      
+>>>>>>> 8b9a05a51fd1693f89fed920d38f27677ea6dab7
 
       form.reset();
       router.refresh();
