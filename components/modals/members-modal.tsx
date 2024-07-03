@@ -63,10 +63,18 @@ export const MembersModal = () => {
         },
       });
 
-      const response = await axios.delete(url);
+      const response = await fetch(url, {
+        method: 'DELETE',
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const data = await response.json();
 
       router.refresh();
-      onOpen("members", { server: response.data });
+      onOpen("members", { server: data });
     } catch (error) {
       console.log(error);
     } finally {
@@ -84,10 +92,22 @@ export const MembersModal = () => {
         }
       });
 
-      const response = await axios.patch(url, { role });
+      const response = await fetch(url, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ role }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const data = await response.json();
 
       router.refresh();
-      onOpen("members", { server: response.data });
+      onOpen("members", { server: data });
     } catch (error) {
       console.log(error);
     } finally {

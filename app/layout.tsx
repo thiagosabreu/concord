@@ -9,6 +9,7 @@ import { ModalProvider } from '@/components/providers/modal-provider'
 import { SocketProvider } from '@/components/providers/socket-provider'
 import { QueryProvider } from '@/components/providers/query-provider'
 
+
 const font = Open_Sans({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -26,12 +27,12 @@ export default function RootLayout({
       <html lang="en" suppressHydrationWarning>
         <body className={cn(
           font.className,
-          "bg-white dark:bg-[#313338]"
+          "bg-[#e4aff8] dark:bg-[#0e0e31]"
         )}>
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
-            enableSystem={false}
+            enableSystem={true}
             storageKey="discord-theme"
           >
             <SocketProvider>

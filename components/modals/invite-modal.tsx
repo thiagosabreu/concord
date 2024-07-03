@@ -40,9 +40,20 @@ export const InviteModal = () => {
   const onNew = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.patch(`/api/servers/${server?.id}/invite-code`);
-
-      onOpen("invite", { server: response.data });
+      const response = await fetch(`/api/servers/${server?.id}/invite-code`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+  
+      const data = await response.json();
+  
+      onOpen("invite", { server: data });
     } catch (error) {
       console.log(error);
     } finally {

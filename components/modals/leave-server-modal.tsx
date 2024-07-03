@@ -28,7 +28,16 @@ export const LeaveServerModal = () => {
     try {
       setIsLoading(true);
 
-      await axios.patch(`/api/servers/${server?.id}/leave`);
+      const response = await fetch(`/api/servers/${server?.id}/invite-code`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
 
       onClose();
       router.refresh();

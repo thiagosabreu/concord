@@ -1,6 +1,5 @@
 "use client";
 
-import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -28,15 +27,38 @@ export const DeleteServerModal = () => {
     try {
       setIsLoading(true);
 
-      await axios.delete(`/api/servers/${server?.id}`);
+      // Deleta o servidor atual
+      const deleteResponse = await fetch(`/api/servers/${server?.id}`, {
+        method: 'DELETE',
+      });
 
-      onClose();
-      router.refresh();
-      router.push("/");
+      if (!deleteResponse.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      // Busca a lista atualizada de servidores
+      const fetchResponse = await fetch("/api/servers", {
+        method: 'GET'
+      });
+
+      window.location.reload();
+      if (fetchResponse.ok) {
+        const serversData = await fetchResponse.json();
+        if (serversData.length > 0) {
+          // Redireciona para o primeiro servidor na lista
+          router.push(`/servers/${serversData[0].id}`);
+        } else {
+          // Caso não exista mais nenhum servidor, redirecionar para uma página genérica
+          router.push('/servers');
+        }
+      } else {
+        console.error('Failed to fetch servers after deletion.', fetchResponse.statusText);
+      }
     } catch (error) {
       console.log(error);
     } finally {
       setIsLoading(false);
+      onClose();
     }
   }
 

@@ -7,7 +7,7 @@ import { db } from "@/lib/db";
 
 export async function POST(req: Request) {
   try {
-    const { name, imageUrl } = await req.json();
+    const { name = "Default Server Name", imageUrl = "/default-image.jpg" } = await req.json(); // Corrigido o caminho da imagem
     const profile = await currentProfile();
 
     if (!profile) {
@@ -21,19 +21,15 @@ export async function POST(req: Request) {
         imageUrl,
         inviteCode: uuidv4(),
         channels: {
-          create: [
-            { name: "general", profileId: profile.id }
-          ]
+          create: [{ name: "general", profileId: profile.id }]
         },
         members: {
-          create: [
-            { profileId: profile.id, role: MemberRole.ADMIN }
-          ]
+          create: [{ profileId: profile.id, role: MemberRole.ADMIN }]
         }
       }
     });
 
-    return NextResponse.json(server);
+    return NextResponse.json({ serverId: server.id });
   } catch (error) {
     console.log("[SERVERS_POST]", error);
     return new NextResponse("Internal Error", { status: 500 });

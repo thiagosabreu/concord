@@ -79,7 +79,17 @@ export const EditChannelModal = () => {
           serverId: server?.id
         }
       });
-      await axios.patch(url, values);
+      const response = await fetch(url, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(values)
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
 
       form.reset();
       router.refresh();
