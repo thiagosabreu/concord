@@ -8,19 +8,18 @@ import { useAuth } from '@clerk/nextjs';
 const WelcomePage = () => {
     const { isSignedIn } = useAuth();
     const router = useRouter();
-    
+
 
     useEffect(() => {
         const fetchUserServer = async () => {
             try {
                 console.log("Fetching user server...");
                 const response = await fetch("/api/servers", {
-                    method: 'POST',
+                    method: 'GET',
                     headers: {
-                      'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({})
-                  });
+                        'Content-Type': 'application/json'
+                    }
+                });
                 if (response.ok) {
                     const data = await response.json();
                     console.log("Server fetched successfully", data);
@@ -38,7 +37,8 @@ const WelcomePage = () => {
             fetchUserServer();
         }
     }, [isSignedIn, router]);
-    
+
+
 
     const handleSignIn = () => {
         router.push('/sign-in');

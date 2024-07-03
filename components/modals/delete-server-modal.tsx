@@ -42,14 +42,7 @@ export const DeleteServerModal = () => {
 
       window.location.reload();
       if (fetchResponse.ok) {
-        const serversData = await fetchResponse.json();
-        if (serversData.length > 0) {
-          // Redireciona para o primeiro servidor na lista
-          router.push(`/servers/${serversData[0].id}`);
-        } else {
-          // Caso não exista mais nenhum servidor, redirecionar para uma página genérica
-          router.push('/servers');
-        }
+        router.push("/")
       } else {
         console.error('Failed to fetch servers after deletion.', fetchResponse.statusText);
       }

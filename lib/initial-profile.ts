@@ -7,7 +7,7 @@ export const initialProfile = async () => {
   const user = await currentUser();
 
   if (!user) {
-    redirect('welcome')
+    redirect('/welcome')
   }
 
   const profile = await db.profile.findUnique({

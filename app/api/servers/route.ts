@@ -35,3 +35,28 @@ export async function POST(req: Request) {
     return new NextResponse("Internal Error", { status: 500 });
   }
 }
+export async function GET(req: Request) {
+  try {
+    const profile = await currentProfile();
+
+    if (!profile) {
+      return new NextResponse("Unauthorized", { status: 401 });
+    }
+
+    // Suponha que queremos buscar o primeiro servidor associado ao profileId do usuário atual
+    const server = await db.server.findFirst({
+      where: {
+        profileId: profile.id
+      }
+    });
+
+    if (server) {
+      return NextResponse.json({ serverId: server.id, name: server.name, imageUrl: server.imageUrl });
+    } else {
+      return new NextResponse("No server found", { status: 404 });
+    }
+  } catch (error) {
+    console.log("[SERVERS_GET]", error);
+    return new NextResponse("Internal Error", { status: 500 });
+  }
+}
