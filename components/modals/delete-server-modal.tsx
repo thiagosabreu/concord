@@ -26,21 +26,10 @@ export const DeleteServerModal = () => {
   const onClick = async () => {
     try {
       setIsLoading(true);
-
-<<<<<<< HEAD
       // Deleta o servidor atual
       const deleteResponse = await fetch(`/api/servers/${server?.id}`, {
         method: 'DELETE',
       });
-=======
-      const response = await fetch(`/api/servers/${server?.id}`, {
-        method: 'DELETE',
-      });
-  
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
->>>>>>> 8b9a05a51fd1693f89fed920d38f27677ea6dab7
 
       if (!deleteResponse.ok) {
         throw new Error('Network response was not ok');

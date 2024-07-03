@@ -54,10 +54,6 @@ export const ChatInput = ({
         query,
       });
 
-<<<<<<< HEAD
-      
-=======
->>>>>>> 8b9a05a51fd1693f89fed920d38f27677ea6dab7
       const response = await fetch(url, {
         method: 'POST',
         headers: {
@@ -70,10 +66,6 @@ export const ChatInput = ({
         throw new Error('Network response was not ok');
       }
 
-<<<<<<< HEAD
-=======
-      
->>>>>>> 8b9a05a51fd1693f89fed920d38f27677ea6dab7
 
       form.reset();
       router.refresh();
