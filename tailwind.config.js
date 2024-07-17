@@ -67,6 +67,10 @@ module.exports = {
           to: { height: 0 },
         },
       },
+      backgroundImage: {
+        'gradient-to-r-custom': 'linear-gradient(to right, #ebc5fb, #c25de8)',
+        'gradient-to-r-dark': 'linear-gradient(to right, #010117, #29298a)',
+      },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",

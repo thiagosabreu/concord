@@ -67,13 +67,14 @@ export const EditServerModal = () => {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json'
-        }
+        },
+        body: JSON.stringify(values) // Adiciona os values como o corpo da requisição
       });
-
+  
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-
+  
       form.reset();
       router.refresh();
       onClose();

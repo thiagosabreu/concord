@@ -10,7 +10,7 @@ export const NavigationAction = () => {
   const router = useRouter();
   
   const handleCreateServer = () => {
-    router.push('/create'); // Redireciona para a página de criação de servidor
+    router.push('/servers/create'); // Redireciona para a página de criação de servidor
   }
 
   return (

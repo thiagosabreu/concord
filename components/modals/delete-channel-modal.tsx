@@ -75,6 +75,7 @@ export const DeleteChannelModal = () => {
               disabled={isLoading}
               variant="primary"
               onClick={onClick}
+              className="bg-[#000000]"
             >
               Confirm
             </Button>
