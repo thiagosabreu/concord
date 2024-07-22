@@ -57,7 +57,7 @@ const WelcomePage = () => {
                 </div>
             </nav>
             <main className="flex flex-col items-center justify-center min-h-screen flex-1 w-full px-6 py-12">
-                <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">Bem-vindo ao Concord!</h1>
+                <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 text-center">Bem-vindo ao Concord!</h1>
                 <p className="text-lg md:text-xl text-white mb-8 text-center">Junte-se ao Concord. <br /> Conecte-se com amigos, participe de comunidades incríveis, e explore um mundo de possibilidades. <br /> No Concord, suas conversas importam.</p>
                 <button onClick={handleSignIn} className="bg-[#df9ff7] hover:bg-[#29298a] text-white font-bold py-2 px-4 rounded dark:bg-[#29298a] dark:hover:bg-[#df9ff7]">
                     Login
