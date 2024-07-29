@@ -10,7 +10,21 @@ body,
 
 @font-face {
   font-family: 'Gliker';
-  src: url('/fonts/Gliker-Regular.ttf') format('truetype');
+  src: url('../public/fonts/Gliker-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Shapiro';
+  src: url('../public/fonts/Shapiro-35-Feather-Text.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Zaius';
+  src: url('../public/fonts/Zaius-Regular.ttf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
@@ -82,6 +96,10 @@ body,
 .font-logo{
   font-family: 'Gliker', sans-serif;
   font-size: 1.5rem;
+}
+
+.font-body{
+  font-family: 'Zaius', sans-serif;
 }
 
 .object-logo{
